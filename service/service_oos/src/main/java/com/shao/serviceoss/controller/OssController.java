@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@RequestMapping("/eduoss/fileoss")
+@RequestMapping("/edu-oss/file-oss")
 @ComponentScan("com.shao.servicebase")
 @CrossOrigin
 public class OssController {

@@ -25,9 +25,9 @@ import java.util.List;
  * @author ShaoHong
  * @since 2020-11-22
  */
-@Api("讲师管理")
+@Api(tags = {"讲师管理"})
 @RestController
-@RequestMapping("/eduservice/edu-teacher")
+@RequestMapping("/edu-service/edu-teacher")
 public class EduTeacherController {
 
     @Autowired
