@@ -1,0 +1,14 @@
+server:
+  port: 8003
+spring:
+  application:
+    name: service-vod
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 100MB
+
+# 设置文件上传的accessKeyId和accessKeySecret
+aliyun.vod.accessKeyId: LTAI4GKH9Qp67TYzELdK8mLg
+aliyun.vod.accessKeySecret: u6M8SpOxBnsD8E2Pwe5IUQuOMPCOf0

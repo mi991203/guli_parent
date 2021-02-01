@@ -3,7 +3,10 @@ package com.shao.eduservice.controller;
 
 import com.baomidou.mybatisplus.extension.api.R;
 import com.shao.commonutils.Response;
+import com.shao.eduservice.entity.EduCourse;
+import com.shao.eduservice.entity.dto.CourseQueryDto;
 import com.shao.eduservice.entity.vo.CourseInfoVo;
+import com.shao.eduservice.entity.vo.CoursePublishVo;
 import com.shao.eduservice.service.EduCourseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,6 +27,12 @@ import org.springframework.web.bind.annotation.*;
 public class EduCourseController {
     @Autowired
     private EduCourseService courseService;
+
+    @ApiOperation("课程列表")
+    @GetMapping
+    public Response getCourseList(CourseQueryDto courseQueryDto) {
+        return Response.success().data("list",courseService.getCourseInfoByCondition(courseQueryDto));
+    }
 
     // 添加课程基本信息的方法
     @ApiOperation("添加课程信息")
@@ -47,6 +56,31 @@ public class EduCourseController {
     @PostMapping("updateCourseInfo")
     public Response updateCourseInfo(@RequestBody CourseInfoVo courseInfoVo) {
         courseService.updateCourseInfo(courseInfoVo);
+        return Response.success();
+    }
+
+    //根据课程id查询课程确认信息
+    @GetMapping("getPublishCourseInfo/{id}")
+    public Response getPublishCourseInfo(@PathVariable String id) {
+        CoursePublishVo coursePublishVo = courseService.publishCourseInfo(id);
+        return Response.success().data("publishCourse",coursePublishVo);
+    }
+
+    // 修改课程状态
+    @ApiOperation("课程最终发布")
+    @PutMapping("publishCourse/{id}")
+    public Response publishCourse(@PathVariable String id) {
+        EduCourse eduCourse = new EduCourse();
+        eduCourse.setId(id).setStatus("Normal");
+        courseService.updateById(eduCourse);
+        return Response.success();
+    }
+
+    //删除课程
+    @ApiOperation("删除课程")
+    @DeleteMapping("deleteCourse/{courseId}")
+    public Response deleteCourse(@PathVariable String courseId) {
+        courseService.removeCourse(courseId);
         return Response.success();
     }
 }
