@@ -1,19 +1,18 @@
 package com.shao.eduservice.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.shao.eduservice.entity.EduCourse;
 import com.shao.eduservice.entity.EduCourseDescription;
-import com.shao.eduservice.entity.dto.CourseQueryDto;
 import com.shao.eduservice.entity.vo.CourseInfoVo;
-import com.shao.eduservice.entity.vo.CoursePublishVo;
 import com.shao.eduservice.mapper.EduCourseMapper;
 import com.shao.eduservice.service.EduChapterService;
 import com.shao.eduservice.service.EduCourseDescriptionService;
 import com.shao.eduservice.service.EduCourseService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.shao.eduservice.service.EduVideoService;
+import com.shao.eduservice.entity.EduCourse;
+import com.shao.eduservice.entity.dto.CourseQueryDto;
+import com.shao.eduservice.entity.vo.CoursePublishVo;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.shao.servicebase.exceptionhandler.GuliException;
-import org.apache.poi.util.StringUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

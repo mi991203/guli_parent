@@ -1,13 +1,12 @@
 package com.shao.eduservice.controller;
 
 
-import com.baomidou.mybatisplus.extension.api.R;
 import com.shao.commonutils.Response;
+import com.shao.eduservice.entity.vo.CourseInfoVo;
+import com.shao.eduservice.service.EduCourseService;
 import com.shao.eduservice.entity.EduCourse;
 import com.shao.eduservice.entity.dto.CourseQueryDto;
-import com.shao.eduservice.entity.vo.CourseInfoVo;
 import com.shao.eduservice.entity.vo.CoursePublishVo;
-import com.shao.eduservice.service.EduCourseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

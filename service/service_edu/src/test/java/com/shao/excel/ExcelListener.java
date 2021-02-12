@@ -2,7 +2,6 @@ package com.shao.excel;
 
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;
-import com.alibaba.excel.metadata.CellData;
 
 import java.util.Map;
 

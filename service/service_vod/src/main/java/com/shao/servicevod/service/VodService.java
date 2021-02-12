@@ -1,6 +1,5 @@
-package com.shao.service;
+package com.shao.servicevod.service;
 
-import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;

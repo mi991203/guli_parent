@@ -1,16 +1,13 @@
-package com.shao.controller;
+package com.shao.servicevod.controller;
 
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.exceptions.ClientException;
-import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.vod.model.v20170321.DeleteVideoRequest;
-import com.baomidou.mybatisplus.extension.api.R;
 import com.shao.commonutils.Response;
-import com.shao.service.VodService;
+import com.shao.servicevod.utils.AlyPropertyConstants;
+import com.shao.servicevod.service.VodService;
 import com.shao.servicebase.exceptionhandler.GuliException;
-import com.shao.utils.AlyPropertyConstants;
-import com.shao.utils.InitVodClient;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.shao.servicevod.utils.InitVodClient;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 

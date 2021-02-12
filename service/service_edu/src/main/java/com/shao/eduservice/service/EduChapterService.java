@@ -1,8 +1,8 @@
 package com.shao.eduservice.service;
 
 import com.shao.eduservice.entity.EduChapter;
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.shao.eduservice.entity.chapter.ChapterVo;
+import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
 

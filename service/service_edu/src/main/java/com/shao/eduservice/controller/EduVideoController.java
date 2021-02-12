@@ -1,14 +1,16 @@
 package com.shao.eduservice.controller;
 
 
-import com.baomidou.mybatisplus.extension.api.R;
 import com.shao.commonutils.Response;
+import com.shao.eduservice.client.VodClient;
 import com.shao.eduservice.entity.EduVideo;
 import com.shao.eduservice.service.EduVideoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 /**
  * <p>
@@ -22,8 +24,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/edu-service/edu-video")
 public class EduVideoController {
-    @Autowired
+    @Resource
     private EduVideoService eduVideoService;
+    @Resource
+    private VodClient vodClient;
 
     //添加小节
     @ApiOperation("添加小节")
@@ -34,10 +38,13 @@ public class EduVideoController {
     }
 
     //删除小节
-    // TODO 后面这个方法需要完善：删除小节时候，同时把里面视频删除
     @ApiOperation("删除小节")
     @DeleteMapping("delete/{id}")
     public Response deleteVideo(@PathVariable String id) {
+        EduVideo eduVideo = eduVideoService.getById(id);
+        if (!StringUtils.isEmpty(eduVideo.getVideoSourceId())) {
+            vodClient.removeAlyVideo(eduVideo.getVideoSourceId());
+        }
         eduVideoService.removeById(id);
         return Response.success();
     }

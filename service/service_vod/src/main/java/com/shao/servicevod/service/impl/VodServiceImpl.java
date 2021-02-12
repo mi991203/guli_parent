@@ -1,16 +1,15 @@
-package com.shao.service.impl;
+package com.shao.servicevod.service.impl;
 
 import com.aliyun.vod.upload.impl.UploadVideoImpl;
 import com.aliyun.vod.upload.req.UploadStreamRequest;
 import com.aliyun.vod.upload.resp.UploadStreamResponse;
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.exceptions.ClientException;
-import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.vod.model.v20170321.DeleteVideoRequest;
-import com.shao.service.VodService;
+import com.shao.servicevod.service.VodService;
+import com.shao.servicevod.utils.AlyPropertyConstants;
 import com.shao.servicebase.exceptionhandler.GuliException;
-import com.shao.utils.AlyPropertyConstants;
-import com.shao.utils.InitVodClient;
+import com.shao.servicevod.utils.InitVodClient;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

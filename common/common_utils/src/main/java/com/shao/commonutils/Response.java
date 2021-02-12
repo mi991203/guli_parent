@@ -30,8 +30,8 @@ public class Response {
     public static Response error(){
         Response response = new Response();
         response.setSuccess(true);
-        response.setCode(ResultCode.SUCCESS);
-        response.setMessage("成功");
+        response.setCode(ResultCode.ERROR);
+        response.setMessage("失败");
         return response;
     }
 

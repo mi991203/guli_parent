@@ -3,8 +3,8 @@ package com.shao.eduservice.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.shao.commonutils.Response;
 import com.shao.eduservice.entity.EduTeacher;
+import com.shao.commonutils.Response;
 import com.shao.eduservice.entity.vo.TeacherQuery;
 import com.shao.eduservice.service.EduTeacherService;
 import io.swagger.annotations.Api;

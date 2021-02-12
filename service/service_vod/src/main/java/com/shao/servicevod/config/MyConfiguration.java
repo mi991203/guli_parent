@@ -1,4 +1,4 @@
-package com.shao.config;
+package com.shao.servicevod.config;
 
 import java.util.Arrays;
 

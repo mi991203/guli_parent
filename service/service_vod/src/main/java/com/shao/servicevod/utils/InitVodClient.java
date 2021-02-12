@@ -1,4 +1,4 @@
-package com.shao.utils;
+package com.shao.servicevod.utils;
 
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.profile.DefaultProfile;
