@@ -12,6 +12,6 @@ aliyun:
   oos:
     file:
       endpoint: oss-cn-beijing.aliyuncs.com
-      keyid: LTAI4GKH9Qp67TYzELdK8mLg
-      keysecret: u6M8SpOxBnsD8E2Pwe5IUQuOMPCOf0
+      [keyid]:
+      [keysecret]:
       bucketname: guli-shao-1010
