@@ -3,12 +3,15 @@ package com.shao.userservice.controller;
 
 import com.shao.commonutils.JwtUtils;
 import com.shao.commonutils.Response;
+import com.shao.commonutils.vo.UserMemberVo;
 import com.shao.userservice.entity.UserMember;
 import com.shao.userservice.entity.vo.LoginVo;
 import com.shao.userservice.entity.vo.RegisterVo;
 import com.shao.userservice.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,6 +54,14 @@ public class UserController {
         String memberId = JwtUtils.getMemberIdByJwtToken(request);
         UserMember userMember = userService.getLoginVoByMemberId(memberId);
         return Response.success().data("item", userMember);
+    }
+
+    @GetMapping("getUserMemberVo/{userId}")
+    public Response getUserMemberVo(@ApiParam(name = "userId", value = "用户ID") @PathVariable String userId) {
+        UserMember userMember = userService.getById(userId);
+        UserMemberVo userMemberVo = new UserMemberVo();
+        BeanUtils.copyProperties(userMember, userMemberVo);
+        return Response.success().data("userMemberVo", userMemberVo);
     }
 
 

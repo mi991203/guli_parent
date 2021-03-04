@@ -3,6 +3,7 @@ package com.shao.eduservice.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.shao.eduservice.entity.EduCourseDescription;
+import com.shao.eduservice.entity.dto.CourseWebVo;
 import com.shao.eduservice.entity.vo.CourseInfoVo;
 import com.shao.eduservice.entity.vo.CourseQueryVo;
 import com.shao.eduservice.mapper.EduCourseMapper;
@@ -158,5 +159,18 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         map.put("hasNext", hasNext);
         map.put("hasPrevious", hasPrevious);
         return map;
+    }
+
+    @Override
+    public CourseWebVo selectInfoWebById(String id) {
+        this.updatePageViewCount(id);
+        return baseMapper.selectInfoWebById(id);
+    }
+
+    @Override
+    public void updatePageViewCount(String id) {
+        EduCourse course = baseMapper.selectById(id);
+        course.setViewCount(course.getViewCount() + 1);
+        baseMapper.updateById(course);
     }
 }

@@ -2,6 +2,7 @@ package com.shao.eduservice.mapper;
 
 import com.shao.eduservice.entity.EduCourse;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.shao.eduservice.entity.dto.CourseWebVo;
 import com.shao.eduservice.entity.vo.CoursePublishVo;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -22,5 +23,12 @@ public interface EduCourseMapper extends BaseMapper<EduCourse> {
      * @return 课程信息概要
      */
     public CoursePublishVo getPublishCourseInfo(String courseId);
+
+    /**
+     * 根据课程ID查询课程信息
+     * @param courseId 课程ID
+     * @return 课程信息
+     */
+    CourseWebVo selectInfoWebById(String courseId);
 
 }
