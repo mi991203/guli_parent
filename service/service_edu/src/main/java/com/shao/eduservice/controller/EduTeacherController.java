@@ -3,6 +3,7 @@ package com.shao.eduservice.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.shao.eduservice.entity.EduCourse;
 import com.shao.eduservice.entity.EduTeacher;
 import com.shao.commonutils.Response;
 import com.shao.eduservice.entity.vo.TeacherQuery;
@@ -15,6 +16,7 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -29,8 +31,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/edu-service/edu-teacher")
 public class EduTeacherController {
-
-    @Autowired
+    @Resource
     private EduTeacherService eduTeacherService;
 
     // 查询所有的数据

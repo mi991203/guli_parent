@@ -1,12 +1,15 @@
 package com.shao.eduservice.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.shao.eduservice.entity.EduCourse;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.shao.eduservice.entity.dto.CourseQueryDto;
 import com.shao.eduservice.entity.vo.CourseInfoVo;
 import com.shao.eduservice.entity.vo.CoursePublishVo;
+import com.shao.eduservice.entity.vo.CourseQueryVo;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -58,4 +61,12 @@ public interface EduCourseService extends IService<EduCourse> {
      * @return 查询结果
      */
     List<EduCourse> getCourseInfoByCondition(CourseQueryDto courseQueryDto);
+
+    /**
+     * 前台根据筛选条件查询课程
+     * @param pageParam 分页请求
+     * @param courseQuery 课程查询条件
+     * @return 查询所得信息Map
+     */
+    Map<String, Object> pageListWeb(Page<EduCourse> pageParam, CourseQueryVo courseQuery);
 }

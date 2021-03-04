@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
-@RequestMapping("edu-service/index-front")
+@RequestMapping("/edu-service/index-front")
 public class IndexFrontController {
     @Resource
     private EduCourseService eduCourseService;

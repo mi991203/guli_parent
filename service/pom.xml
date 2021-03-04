@@ -16,6 +16,7 @@
         <module>service_oos</module>
         <module>service_vod</module>
         <module>service_cms</module>
+        <module>service_user</module>
     </modules>
 
     <dependencies>
