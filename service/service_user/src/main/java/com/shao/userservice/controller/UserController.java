@@ -1,6 +1,7 @@
 package com.shao.userservice.controller;
 
 
+import com.alibaba.fastjson.JSON;
 import com.shao.commonutils.JwtUtils;
 import com.shao.commonutils.Response;
 import com.shao.commonutils.vo.UserMemberVo;
@@ -11,6 +12,7 @@ import com.shao.userservice.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +32,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/user-service/user")
 @CrossOrigin
+@Slf4j
 public class UserController {
     @Resource
     private UserService userService;
@@ -57,13 +60,12 @@ public class UserController {
     }
 
     @GetMapping("getUserMemberVo/{userId}")
-    public Response getUserMemberVo(@ApiParam(name = "userId", value = "用户ID") @PathVariable String userId) {
+    public Response getUserMemberVo(@ApiParam(name = "userId", value = "用户ID") @PathVariable("userId") String userId) {
+        log.info("被调用");
         UserMember userMember = userService.getById(userId);
         UserMemberVo userMemberVo = new UserMemberVo();
         BeanUtils.copyProperties(userMember, userMemberVo);
         return Response.success().data("userMemberVo", userMemberVo);
     }
-
-
 }
 
