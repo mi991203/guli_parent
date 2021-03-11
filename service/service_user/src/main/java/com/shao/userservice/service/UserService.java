@@ -34,4 +34,11 @@ public interface UserService extends IService<UserMember> {
      * @return 用户登录对象
      */
     UserMember getLoginVoByMemberId(String memberId);
+
+    /**
+     * 查询某一天中注册人数
+     * @param day 日期
+     * @return 注册人数
+     */
+    Integer countRegisterByDay(String day);
 }

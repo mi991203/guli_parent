@@ -87,4 +87,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserMember> impleme
         BeanUtils.copyProperties(userMember, loginVo);*/
         return userMember;
     }
+
+    @Override
+    public Integer countRegisterByDay(String day) {
+        return baseMapper.countRegisterByDay(day);
+    }
 }

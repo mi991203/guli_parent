@@ -67,5 +67,10 @@ public class UserController {
         BeanUtils.copyProperties(userMember, userMemberVo);
         return Response.success().data("userMemberVo", userMemberVo);
     }
+
+    @GetMapping("count-register/{day}")
+    public Response countRegister(@PathVariable String day) {
+        return Response.success().data("countRegister", userService.countRegisterByDay(day));
+    }
 }
 
